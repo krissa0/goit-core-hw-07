@@ -32,7 +32,7 @@ class Phone(Field):
 class Birthday(Field):
     def __init__(self, value):
         try:
-            datetime.strptime(value, "%d.%m.%Y")  # перевірка формату, зберігаємо рядок
+            datetime.strptime(value, "%d.%m.%Y")
         except ValueError:
             raise ValueError("Невірний формат дати")
         self.value = value
@@ -111,9 +111,9 @@ class AddressBook(UserDict):
                     if next_birthday < today:
                         next_birthday = next_birthday.replace(year=today.year + 1)
                     weekday = next_birthday.weekday()
-                    if weekday == 5:  # субота
+                    if weekday == 5:
                         next_birthday += timedelta(days=2)
-                    elif weekday == 6:  # неділя
+                    elif weekday == 6:
                         next_birthday += timedelta(days=1)
 
                     upcoming.append({
